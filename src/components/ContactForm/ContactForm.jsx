@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 import s from './ContactForm.module.css';
 import { useSelector, useDispatch } from 'react-redux';
 import { Report } from 'notiflix/build/notiflix-report-aio';
-import { addContact, getContacts } from 'redux/contacts-slice';
+import { addContact, getContacts } from 'redux/contactsSlice';
 
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');

@@ -1,6 +1,6 @@
 import s from './Filter.module.css';
 import { useSelector, useDispatch } from 'react-redux';
-import { changeFilter, getFilter } from 'redux/contacts-slice';
+import { changeFilter, getFilter } from 'redux/contactsSlice';
 
 const Filter = () => {
   const filter = useSelector(getFilter);

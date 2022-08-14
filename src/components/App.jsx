@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
-import { getContacts } from 'redux/contacts-slice';
+import { getContacts } from 'redux/contactsSlice';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
-import { addContact } from 'redux/contacts-slice';
+import { addContact } from 'redux/contactsSlice';
 import Filter from './Filter/Filter';
 import Message from './Message/Message';
 import s from './App.module.css';
