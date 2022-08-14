@@ -1,6 +1,10 @@
 import PropTypes from 'prop-types';
 import { useState } from 'react';
+import { nanoid } from 'nanoid';
 import s from './ContactForm.module.css';
+import { useSelector, useDispatch } from 'react-redux';
+import { Report } from 'notiflix/build/notiflix-report-aio';
+import { addContact, getContacts } from 'redux/contacts-slice';
 
 const ContactForm = ({ onSubmit }) => {
   const [name, setName] = useState('');
@@ -9,10 +13,18 @@ const ContactForm = ({ onSubmit }) => {
   const handleChangeName = e => setName(e.currentTarget.value);
   const handleChangeNunber = e => setNumber(e.currentTarget.value);
 
+  const contacts = useSelector(getContacts);
+  const dispatch = useDispatch();
+
   const handleSubmitForm = e => {
     e.preventDefault();
 
-    onSubmit({ name, number });
+    const newElement = { id: nanoid(), name, number };
+
+    contacts.some(contact => contact.name.toLowerCase() === name.toLowerCase())
+      ? Report.warning(`${name}`, 'This user is already in the contact list.', 'OK')
+      : dispatch(addContact(newElement));
+
     reset();
   };
 

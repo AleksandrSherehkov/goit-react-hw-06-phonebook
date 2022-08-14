@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import { FcCancel, FcCellPhone } from 'react-icons/fc';
 import s from './Contact.module.css';
 
-const Contact = ({ name, number, onDeleteContact, contactId }) => {
+const Contact = ({ name, number, onDeleteContact }) => {
   return (
     <>
       <div className={s.wrapper}>
@@ -13,7 +13,7 @@ const Contact = ({ name, number, onDeleteContact, contactId }) => {
       </div>
       <div className={s.wrapper}>
         <p className={s.number}>{number}</p>
-        <button className={s.button} type="button" onClick={() => onDeleteContact(contactId)}>
+        <button className={s.button} type="button" onClick={onDeleteContact}>
           <FcCancel size="30" />
         </button>
       </div>
